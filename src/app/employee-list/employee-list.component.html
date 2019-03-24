@@ -1,0 +1,17 @@
+<h1>Nossos Empregados</h1>
+
+<table>
+  <thead>
+    <th>Nome</th>
+    <th>Salário</th>
+    <th>Bônus</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.name }}</td>
+      <td [innerHTML]="employee.salary"
+        [ngClass]="getSalaryStyle(employee.salary)"></td>
+      <td [innerHTML]="employee.bonus"></td>
+    </tr>
+  </tbody>
+</table>
