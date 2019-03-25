@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import employees from '../employees';
+import {Employee, EmployeeService} from '../employee.service';
 
 @Component({
   selector: 'employee-new',
@@ -8,18 +9,21 @@ import employees from '../employees';
 })
 export class EmployeeNewComponent implements OnInit {
 
-  name = 'Marcos Barbosa';
-  salary = 0;
-  bonus = 0;
-  emplyees = employees;
+  employee: Employee = {
+    name: '',
+    salary: 0,
+    bonus: 0
+  }
 
-  constructor() { }
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
   }
 
   addEmployee() {
-    this.emplyees.push({name: this.name, salary: this.salary, bonus: this.bonus});
+    const copy = Object.assign({}, this.employee);
+    this.employeeService.addEmployee(copy);
+    this.employee = {name: '', salary: 0, bonus: 0};
   }
 
 }
