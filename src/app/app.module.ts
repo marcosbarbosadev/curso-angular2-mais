@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeNewComponent } from './employee-new/employee-new.component';
 import { FormsModule } from '@angular/forms';
+import { SalaryColorDirective } from './salary-color.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
-    EmployeeNewComponent
+    EmployeeNewComponent,
+    SalaryColorDirective
   ],
   imports: [
       BrowserModule,
