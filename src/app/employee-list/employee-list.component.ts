@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import employees from '../employees';
 import {EmployeeService} from '../employee.service';
+import {EmployeeNewComponent} from '../employee-new/employee-new.component';
+import {EmployeeNewModalComponent} from '../employee-new-modal/employee-new-modal.component';
 
 @Component({
   selector: 'employee-list',
@@ -9,9 +11,14 @@ import {EmployeeService} from '../employee.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-  constructor(public employeeService: EmployeeService) { }
+  @ViewChild(EmployeeNewModalComponent)
+  employeeNewModal: EmployeeNewModalComponent;
+
+  constructor(public employeeService: EmployeeService) {
+  }
 
   ngOnInit() {
+    this.employeeNewModal.show();
   }
 
   getSalaryStyle(salary) {
