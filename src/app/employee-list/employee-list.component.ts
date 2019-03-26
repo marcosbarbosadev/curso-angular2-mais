@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import employees from '../employees';
-import {EmployeeService} from '../employee.service';
+import {Employee, EmployeeService} from '../employee.service';
 import {EmployeeNewComponent} from '../employee-new/employee-new.component';
 import {EmployeeNewModalComponent} from '../employee-new-modal/employee-new-modal.component';
 
@@ -13,6 +12,9 @@ export class EmployeeListComponent implements OnInit {
 
   @ViewChild(EmployeeNewModalComponent)
   employeeNewModal: EmployeeNewModalComponent;
+
+  employee: Employee;
+  showMessageSuccess = false;
 
   constructor(public employeeService: EmployeeService) {
   }
@@ -30,6 +32,11 @@ export class EmployeeListComponent implements OnInit {
 
   openNewModal() {
     this.employeeNewModal.show();
+  }
+
+  onNewEmployee(employee: Employee) {
+    this.employee = employee;
+    this.showMessageSuccess = true;
   }
 
 }
