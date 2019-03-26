@@ -3,9 +3,12 @@
     <h1>Nossos Empregados</h1>
     <table class="table table-striped">
       <thead>
-      <th>Nome</th>
-      <th>Salário</th>
-      <th>Bônus</th>
+        <tr>
+          <td colspan="3"><button class="btn btn-primary" (click)="openNewModal()">Novo Empregado</button></td>
+        </tr>
+        <th>Nome</th>
+        <th>Salário</th>
+        <th>Bônus</th>
       </thead>
       <tbody>
       <tr *ngFor="let employee of employeeService.employees">

@@ -18,7 +18,6 @@ export class EmployeeListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.employeeNewModal.show();
   }
 
   getSalaryStyle(salary) {
@@ -27,6 +26,10 @@ export class EmployeeListComponent implements OnInit {
         'salary-expensive': salary > 20000,
         'salary-cheap': salary < 1000
     };
+  }
+
+  openNewModal() {
+    this.employeeNewModal.show();
   }
 
 }
