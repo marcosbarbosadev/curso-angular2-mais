@@ -1,7 +1,7 @@
 <div class="container">
-  <p [hidden]="!showMessageSuccess">
-      O empregado {{ employee?.name }} foi cadastrado com sucesso!
-  </p>
+  <alert-success [hidden]="!showMessageSuccess">
+    O empregado <strong>{{ employee?.name }}</strong> foi cadastrado com sucesso!
+  </alert-success>
   <div class="row">
     <h1>Nossos Empregados</h1>
     <table class="table table-striped">
