@@ -12,6 +12,7 @@
         <th>Nome</th>
         <th>Salário</th>
         <th>Bônus</th>
+        <th>Ações</th>
       </thead>
       <tbody>
       <tr *ngFor="let employee of employeeService.employees">
@@ -20,6 +21,9 @@
         <!--<td [innerHTML]="employee.salary"-->
             <!--[ngClass]="getSalaryStyle(employee.salary)"></td>-->
         <td [innerHTML]="employee.bonus"></td>
+        <td>
+          <a href="javascript:void(0)" (click)="openEditModal(employee)">Editar</a>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -28,3 +32,4 @@
 </div>
 
 <app-employee-new-modal (onSubmit)="onNewEmployee($event)"></app-employee-new-modal>
+<app-employee-edit-modal [employee]="employee" (onSubmit)="onNewEmployee($event)"></app-employee-edit-modal>

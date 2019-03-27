@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {Employee, EmployeeService} from '../employee.service';
 import {EmployeeNewComponent} from '../employee-new/employee-new.component';
 import {EmployeeNewModalComponent} from '../employee-new-modal/employee-new-modal.component';
+import {EmployeeEditModalComponent} from '../employee-edit-modal/employee-edit-modal.component';
 
 @Component({
   selector: 'employee-list',
@@ -12,6 +13,11 @@ export class EmployeeListComponent implements OnInit {
 
   @ViewChild(EmployeeNewModalComponent)
   employeeNewModal: EmployeeNewModalComponent;
+
+  @ViewChild(EmployeeEditModalComponent)
+  employeeEditModal: EmployeeEditModalComponent;
+
+  employeeToEdit: Employee;
 
   employee: Employee;
   showMessageSuccess = false;
@@ -30,13 +36,22 @@ export class EmployeeListComponent implements OnInit {
     };
   }
 
-  openNewModal() {
+  openNewModal(employee: Employee) {
+    this.employeeToEdit = employee;
     this.employeeNewModal.show();
   }
 
-  onNewEmployee(employee: Employee) {
+  openEditModal(employee: Employee) {
     this.employee = employee;
+    this.employeeEditModal.show();
+  }
+
+  onNewEmployee() {
     this.showMessageSuccess = true;
+  }
+
+  onEditEmployee(employee: Employee) {
+    console.log(employee);
   }
 
 }
