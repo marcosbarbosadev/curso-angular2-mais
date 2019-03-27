@@ -10,7 +10,13 @@ export interface Employee {
   providedIn: 'root'
 })
 export class EmployeeService {
-  employees: Employee[] = [];
+
+  employees: Employee[] = [
+    {name: 'Marcos Barbosa', salary: 5500, bonus: 0},
+    {name: 'Fulano Silva', salary: 2000, bonus: 0},
+    {name: 'Beltrano Costa', salary: 998, bonus: 150}
+  ];
+
   constructor() { }
 
   addEmployee(employee: Employee) {
