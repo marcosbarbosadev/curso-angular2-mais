@@ -1,6 +1,6 @@
 <div class="container">
   <alert-success [hidden]="!showMessageSuccess">
-    O empregado <strong>{{ employee?.name }}</strong> foi cadastrado com sucesso!
+    O empregado <strong>{{ employee?.name }}</strong> foi {{ acao}} com sucesso!
   </alert-success>
   <div class="row">
     <h1>Nossos Empregados</h1>
@@ -22,7 +22,8 @@
             <!--[ngClass]="getSalaryStyle(employee.salary)"></td>-->
         <td [innerHTML]="employee.bonus"></td>
         <td>
-          <a href="javascript:void(0)" (click)="openEditModal(employee)">Editar</a>
+          <a href="javascript:void(0)" (click)="openEditModal(employee)">Editar</a> |
+          <a href="javascript:void(0)" (click)="openDestroyModal(employee)">Excluir</a>
         </td>
       </tr>
       </tbody>
@@ -32,4 +33,5 @@
 </div>
 
 <app-employee-new-modal (onSubmit)="onNewEmployee($event)"></app-employee-new-modal>
-<app-employee-edit-modal [employee]="employee" (onSubmit)="onNewEmployee($event)"></app-employee-edit-modal>
+<app-employee-edit-modal [employee]="employee" (onSubmit)="onEditEmployee($event)"></app-employee-edit-modal>
+<app-employee-delete-modal [employee]="employee" (onDeleteModal)="onDestroyEmployee($event)"></app-employee-delete-modal>

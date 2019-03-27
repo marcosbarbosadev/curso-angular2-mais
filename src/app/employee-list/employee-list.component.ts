@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {Employee, EmployeeService} from '../employee.service';
-import {EmployeeNewComponent} from '../employee-new/employee-new.component';
-import {EmployeeNewModalComponent} from '../employee-new-modal/employee-new-modal.component';
-import {EmployeeEditModalComponent} from '../employee-edit-modal/employee-edit-modal.component';
+import { Employee, EmployeeService } from '../employee.service';
+import { EmployeeNewComponent } from '../employee-new/employee-new.component';
+import { EmployeeNewModalComponent } from '../employee-new-modal/employee-new-modal.component';
+import { EmployeeEditModalComponent } from '../employee-edit-modal/employee-edit-modal.component';
+import { EmployeeDeleteModalComponent } from '../employee-delete-modal/employee-delete-modal.component';
 
 @Component({
   selector: 'employee-list',
@@ -17,10 +18,14 @@ export class EmployeeListComponent implements OnInit {
   @ViewChild(EmployeeEditModalComponent)
   employeeEditModal: EmployeeEditModalComponent;
 
-  employeeToEdit: Employee;
+  @ViewChild(EmployeeDeleteModalComponent)
+  employeeDeleteModal: EmployeeDeleteModalComponent;
 
+  employeeToDelete: Employee;
+  employeeToEdit: Employee;
   employee: Employee;
   showMessageSuccess = false;
+  acao = '';
 
   constructor(public employeeService: EmployeeService) {
   }
@@ -46,12 +51,23 @@ export class EmployeeListComponent implements OnInit {
     this.employeeEditModal.show();
   }
 
+  openDestroyModal(employee: Employee) {
+    this.employee = employee;
+    this.employeeDeleteModal.show();
+  }
+
   onNewEmployee() {
+    this.acao = 'cadastrado';
     this.showMessageSuccess = true;
   }
 
   onEditEmployee(employee: Employee) {
-    console.log(employee);
+    this.acao = 'alterado';
+    this.showMessageSuccess = true;
   }
 
+  onDestroyEmployee(employee: Employee) {
+    this.acao = 'removido';
+    this.showMessageSuccess = true;
+  }
 }
