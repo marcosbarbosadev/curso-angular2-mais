@@ -17,7 +17,7 @@
       <tbody>
       <tr *ngFor="let employee of employeeService.employees">
         <td>{{ employee.name }}</td>
-        <td [innerHTML]="employee.salary" salaryColor="{{ employee.salary }}"></td>
+        <td [innerHTML]="employee.salary" [salaryColor]="employee.salary"></td>
         <!--<td [innerHTML]="employee.salary"-->
             <!--[ngClass]="getSalaryStyle(employee.salary)"></td>-->
         <td [innerHTML]="employee.bonus"></td>
