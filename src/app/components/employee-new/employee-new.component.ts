@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import employees from '../employees';
-import {Employee, EmployeeService} from '../employee.service';
+import employees from '../../employees';
+import {Employee, EmployeeService} from '../../services/employee.service';
 
 @Component({
   selector: 'employee-new',

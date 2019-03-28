@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Employee, EmployeeService } from '../employee.service';
+import { Employee, EmployeeService } from '../../services/employee.service';
 import { EmployeeNewComponent } from '../employee-new/employee-new.component';
 import { EmployeeNewModalComponent } from '../employee-new-modal/employee-new-modal.component';
 import { EmployeeEditModalComponent } from '../employee-edit-modal/employee-edit-modal.component';
