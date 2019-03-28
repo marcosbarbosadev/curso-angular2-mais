@@ -4,15 +4,7 @@ declare const $;
 
 @Component({
   selector: 'app-modal',
-  template: `
-    <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <ng-content></ng-content>
-        </div>
-      </div>
-    </div>
-  `,
+  templateUrl: './modal.component.html',
   styles: []
 })
 export class ModalComponent implements OnInit {
