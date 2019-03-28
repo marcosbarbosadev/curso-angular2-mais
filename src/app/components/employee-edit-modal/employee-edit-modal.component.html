@@ -1,7 +1,7 @@
 <form (submit)="addEmployee()">
   <app-modal>
-    <h5 class="modal-title" modal-title>Edit empregado {{ employee?.name }}</h5>
-    <div class="modal-body" *ngIf="employee" modal-body>
+    <h5 modal-title>Edit empregado {{ employee?.name }}</h5>
+    <div modal-body>
       <div class="form-group">
         <label>Nome</label>
         <input class="form-control" name="name" type="text" [(ngModel)]="employee.name"><br>
@@ -15,7 +15,7 @@
         <input class="form-control" name="bonus" type="text" [(ngModel)]="employee.bonus"><br>
       </div>
     </div>
-    <div class="modal-footer" modal-footer>
+    <div modal-footer>
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       <button type="submit" class="btn btn-primary">Alterar</button>
     </div>

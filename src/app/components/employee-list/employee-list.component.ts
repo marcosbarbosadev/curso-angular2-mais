@@ -23,9 +23,13 @@ export class EmployeeListComponent implements OnInit {
 
   employeeToDelete: Employee;
   employeeToEdit: Employee;
-  employee: Employee;
+  employee: Employee = {
+    name: '',
+    salary: 0,
+    bonus: 0
+  };
   showMessageSuccess = false;
-  acao = '';
+  descricaoAcao = '';
 
   constructor(public employeeService: EmployeeService) {
   }
@@ -56,18 +60,20 @@ export class EmployeeListComponent implements OnInit {
     this.employeeDeleteModal.show();
   }
 
-  onNewEmployee() {
-    this.acao = 'cadastrado';
+  onNewEmployee(employee: Employee) {
+    this.employee = employee
+    this.descricaoAcao = 'cadastrado';
     this.showMessageSuccess = true;
   }
 
   onEditEmployee(employee: Employee) {
-    this.acao = 'alterado';
+    console.log(employee);
+    this.descricaoAcao = 'alterado';
     this.showMessageSuccess = true;
   }
 
   onDestroyEmployee(employee: Employee) {
-    this.acao = 'removido';
+    this.descricaoAcao = 'removido';
     this.showMessageSuccess = true;
   }
 }

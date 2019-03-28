@@ -39,8 +39,8 @@ export class EmployeeNewModalComponent implements OnInit {
   addEmployee() {
     const copy = Object.assign({}, this.employee);
     this.employeeService.addEmployee(copy);
-    this.employee = {name: '', salary: 0, bonus: 0};
     this.onSubmit.emit(copy);
+    this.employee = {name: '', salary: 0, bonus: 0};
     this.hide();
   }
 

@@ -1,13 +1,15 @@
 <div class="container">
   <alert-success [hidden]="!showMessageSuccess">
-    O empregado <strong>{{ employee?.name }}</strong> foi {{ acao}} com sucesso!
+    O empregado <strong>{{ employee?.name }}</strong> foi {{ descricaoAcao}} com sucesso!
   </alert-success>
   <div class="row">
     <h1>Nossos Empregados</h1>
     <table class="table table-striped">
       <thead>
         <tr>
-          <td colspan="3"><button class="btn btn-primary" (click)="openNewModal()">Novo Empregado</button></td>
+          <td colspan="3">
+            <button class="btn btn-primary" (click)="openNewModal()">Novo Empregado</button>
+          </td>
         </tr>
         <th>Nome</th>
         <th>Salário</th>
