@@ -1,6 +1,7 @@
 import {Component, OnInit, Output, EventEmitter, ViewChild} from '@angular/core';
 import {Employee, EmployeeService} from '../../services/employee.service';
 import {ModalComponent} from '../modal/modal.component';
+import {Modalable} from '../modal/modalable';
 
 declare const $;
 
@@ -9,7 +10,7 @@ declare const $;
   templateUrl: './employee-new-modal.component.html',
   styleUrls: ['./employee-new-modal.component.css']
 })
-export class EmployeeNewModalComponent implements OnInit {
+export class EmployeeNewModalComponent extends Modalable implements OnInit {
 
   employee: Employee = {
     name: '',
@@ -20,20 +21,11 @@ export class EmployeeNewModalComponent implements OnInit {
   @Output()
   onSubmit: EventEmitter<Employee> = new EventEmitter<Employee>();
 
-  @ViewChild(ModalComponent)
-  modalComponent: ModalComponent;
-
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService) {
+    super();
+  }
 
   ngOnInit() {
-  }
-
-  show() {
-      this.modalComponent.show();
-  }
-
-  hide() {
-    this.modalComponent.hide();
   }
 
   addEmployee() {
