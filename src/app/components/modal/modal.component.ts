@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output} from '@angular/core';
 
 declare const $;
 
@@ -41,7 +41,6 @@ export class ModalComponent implements OnInit {
 
   private get divModal(): HTMLElement {
     const elementNative: HTMLElement = this.element.nativeElement;
-    console.log(elementNative);
     return elementNative.firstChild as HTMLElement;
   }
 

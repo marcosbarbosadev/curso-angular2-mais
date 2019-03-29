@@ -76,4 +76,12 @@ export class EmployeeListComponent implements OnInit {
     this.descricaoAcao = 'removido';
     this.showMessageSuccess = true;
   }
+
+  abriu(event) {
+    console.log(event);
+  }
+
+  fechou(event) {
+    console.log(event);
+  }
 }
